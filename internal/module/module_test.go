@@ -22,7 +22,7 @@ replace github.com/gin-gonic/gin => github.com/gin-gonic/gin v1.9.1
 
 func TestParse(t *testing.T) {
 	dir := t.TempDir()
-	if err := os.WriteFile(filepath.Join(dir, "go.mod"), []byte(fixture), 0o644); err != nil {
+	if err := os.WriteFile(filepath.Join(dir, "go.mod"), []byte(fixture), 0o600); err != nil {
 		t.Fatal(err)
 	}
 
