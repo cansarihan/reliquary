@@ -1,0 +1,10 @@
+name: reliquary-demo
+
+services:
+  reliquary:
+    build: ..
+    command: ["serve", "-dir", "/project", "-listen", "0.0.0.0:8080"]
+    volumes:
+      - ./sample:/project:ro
+    ports:
+      - "127.0.0.1:18140:8080"
