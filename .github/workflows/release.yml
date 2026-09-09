@@ -1,0 +1,37 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+      - name: Build release archives
+        run: |
+          version="${GITHUB_REF_NAME}"
+          mkdir -p dist
+          for target in linux/amd64 linux/arm64 darwin/arm64 windows/amd64; do
+            goos="${target%/*}"; goarch="${target#*/}"
+            out="reliquary_${version}_${goos}_${goarch}"; ext=""
+            if [ "$goos" = "windows" ]; then ext=".exe"; fi
+            GOOS=$goos GOARCH=$goarch CGO_ENABLED=0 go build -trimpath \
+              -ldflags "-s -w -X main.version=${version} -X main.commit=${GITHUB_SHA::7}" \
+              -o "dist/${out}/reliquary${ext}" ./cmd/reliquary
+            tar -czf "dist/${out}.tar.gz" -C dist "${out}"
+          done
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.tar.gz
+          generate_release_notes: true
