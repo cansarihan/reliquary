@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 170" width="760" height="170" fill="none">
+  <g transform="translate(60,85)">
+    <circle r="40" fill="none" stroke="#c69a5b" stroke-width="2"/>
+    <circle r="15" fill="#e2b978"/>
+    <circle cx="0" cy="-40" r="6" fill="#d64545"/>
+    <circle cx="35" cy="20" r="6" fill="#e0883a"/>
+    <circle cx="-35" cy="20" r="6" fill="#d8b34a"/>
+    <path d="M0 -15 V-34 M13 8 L30 17 M-13 8 L-30 17" stroke="#c69a5b" stroke-width="1.6" opacity="0.6"/>
+  </g>
+  <text x="140" y="92" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="58" font-weight="600" fill="#ece0c9">reliquary</text>
+  <text x="143" y="122" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12.5" letter-spacing="1.5" fill="#b6a17e">dependency vulnerability ledger</text>
+  <g transform="translate(660,85)">
+    <circle cx="0" cy="0" r="9" fill="#d64545"/>
+    <circle cx="34" cy="-22" r="7" fill="#e0883a"/>
+    <circle cx="40" cy="20" r="6" fill="#d8b34a"/>
+    <circle cx="-32" cy="-24" r="5" fill="#c69a5b"/>
+    <circle cx="-38" cy="18" r="5" fill="#5fa07a"/>
+    <path d="M0 0 L34 -22 M0 0 L40 20 M0 0 L-32 -24 M0 0 L-38 18" stroke="#c69a5b" stroke-width="1" opacity="0.4"/>
+  </g>
+</svg>
