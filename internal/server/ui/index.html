@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>reliquary</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="favicon.svg">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <svg class="glyph" viewBox="0 0 44 44" aria-hidden="true">
+      <circle cx="22" cy="22" r="15" fill="none" stroke="currentColor" stroke-width="1.4" opacity="0.5"/>
+      <circle cx="22" cy="22" r="6" fill="currentColor"/>
+      <circle cx="22" cy="7" r="2.4" fill="currentColor"/>
+      <circle cx="35" cy="29" r="2.4" fill="currentColor"/>
+      <circle cx="9" cy="29" r="2.4" fill="currentColor"/>
+      <path d="M22 16 V13 M27 24 L31 27 M17 24 L13 27" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+    </svg>
+    <div class="name">
+      <span class="mark">reliquary</span>
+      <span class="tag">dependency vulnerability ledger</span>
+    </div>
+  </div>
+
+  <div class="subject">
+    <span class="main" id="main">no project loaded</span>
+    <div class="risk">
+      <span class="band" id="band">idle</span>
+      <span class="meter"><i id="meter-fill"></i></span>
+      <span class="tally" id="tally"></span>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button id="run" type="button">Scan</button>
+    <span class="state"><i class="lamp" id="lamp"></i><span id="state">idle</span></span>
+  </div>
+</header>
+
+<main>
+  <section class="constellation" aria-label="dependency graph">
+    <div class="panel-head"><span>Reliquary</span><span class="hint" id="graph-hint">modules by exposure</span></div>
+    <div class="stage"><svg id="graph" viewBox="0 0 800 560" preserveAspectRatio="xMidYMid meet"></svg></div>
+    <div class="legend" id="legend"></div>
+  </section>
+
+  <aside class="detail" id="detail">
+    <div class="detail-empty" id="detail-empty">Select a module to read its advisories.</div>
+    <div class="detail-body" id="detail-body" hidden>
+      <div class="detail-head">
+        <span class="worst" id="d-worst"></span>
+        <div class="d-id">
+          <span class="d-path" id="d-path"></span>
+          <span class="d-ver" id="d-ver"></span>
+        </div>
+      </div>
+      <div class="findings" id="findings"></div>
+    </div>
+  </aside>
+</main>
+
+<footer class="feed-wrap">
+  <div class="panel-head"><span>Live ledger</span><span class="feed-meta" id="feed-meta"></span></div>
+  <div class="feed" id="feed"></div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
