@@ -1,0 +1,34 @@
+version: "2"
+
+run:
+  timeout: 5m
+
+linters:
+  default: none
+  enable:
+    - errcheck
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused
+    - misspell
+    - bodyclose
+    - gosec
+  settings:
+    errcheck:
+      exclude-functions:
+        - fmt.Fprint
+        - fmt.Fprintf
+        - fmt.Fprintln
+    gosec:
+      excludes:
+        - G115
+        - G204
+        - G302
+        - G304
+        - G305
+        - G402
+        - G404
+formatters:
+  enable:
+    - gofmt
